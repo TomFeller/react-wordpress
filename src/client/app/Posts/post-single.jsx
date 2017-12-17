@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import classNames from 'classnames';
 import postProps from '../utils/post-props.jsx'
 
-class PostThumbnail extends React.Component {
+class PostSingle extends React.Component {
   render() {
     const post = postProps(this.props.post);
 
@@ -13,8 +13,8 @@ class PostThumbnail extends React.Component {
                  'post',
                  'post-id-' + post.id,
                  'post-cat-' + this.props.category,
-                 'post--thumbnail')}
-               key={post.index}>
+                 'post--single')}
+               key={post.id}>
         <h2 className='post__title'>{post.title}</h2>
         <img src={post.featuredImage}/>
       </article>
@@ -22,4 +22,4 @@ class PostThumbnail extends React.Component {
   }
 }
 
-export default PostThumbnail;
+export default PostSingle;
