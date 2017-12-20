@@ -14,22 +14,20 @@ import classNames from 'classnames';
 import postMap from './utils/post-mapping.jsx';
 import routes from './data/dataRoutes.jsx';
 import PostThumbnail from './posts/post-thumbnail.jsx';
+import Grid from './Grid/grid.jsx';
 
 class Archive extends React.Component {
   constructor(props) {
     super(props);
     this.buildPosts = this.buildPosts.bind(this);
-    this.getCategoryName = this.getCategoryName.bind(this);
 
     let archiveCategory = this.props.category ? this.props.category : null;
     let root = this.props.apiRoot ? this.props.apiRoot :
       archiveCategory ? (routes.posts + '/?categories=' + archiveCategory) : (routes.posts);
 
-
     this.state = {
       posts: [],
-      dataRoute: root,
-      categoryName: this.getCategoryName(root)
+      dataRoute: root
     }
   }
 
@@ -48,10 +46,6 @@ class Archive extends React.Component {
       );
   }
 
-  getCategoryName() {
-
-  }
-
   buildPosts() {
     let dom = [];
     const posts = this.state.posts,
@@ -59,8 +53,8 @@ class Archive extends React.Component {
 
     posts.forEach((post) => {
       dom.push(
-        <PostThumbnail post={post}
-                       category={postCategory}
+        <PostThumbnail category={postCategory}
+                       post={post}
                        key={post.index}/>
       );
     });
@@ -77,9 +71,10 @@ class Archive extends React.Component {
              'archive',
              'archive-cat-' + renderDOM.postCategory)}>
         <h1 className='archive__title'>Archive: {renderDOM.postCategory}</h1>
-        {renderDOM.dom}
+        <Grid layout='bli' elements={renderDOM.dom}/>
       </div>
     )
   }
 }
+
 export default Archive;

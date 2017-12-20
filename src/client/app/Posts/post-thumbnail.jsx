@@ -1,11 +1,11 @@
 import React from 'react';
 import {render} from 'react-dom';
 import classNames from 'classnames';
-import postProps from '../utils/post-props.jsx'
+
 
 class PostThumbnail extends React.Component {
   render() {
-    const post = postProps(this.props.post);
+    const post = this.props.post;
 
     return (
       <article id={'post-id-' + post.id}

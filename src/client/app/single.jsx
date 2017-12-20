@@ -21,7 +21,7 @@ class Single extends React.Component {
     this.buildPosts = this.buildSingleDOM.bind(this);
 
     const allPostsRoot = routes.posts;
-    const {apiRoot, id} =  this.props
+    const {apiRoot, id} =  this.props;
     let root = apiRoot ? apiRoot : id ? (allPostsRoot + '/' + id) : (allPostsRoot + '/16');
 
     this.state = {

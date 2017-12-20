@@ -1,14 +1,15 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Archive from './archive.jsx';
-import Single from './single.jsx';
+import appContent from './data/app-structure.jsx';
 
 class App extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        {this.props.content.map((element, index) =>
-          element
+        {this.props.content.appContent.map((element, index) =>
+          <div className='container'>
+            {element}
+          </div>
         )}
       </div>
     )
@@ -16,8 +17,6 @@ class App extends React.Component {
 }
 
 render(
-  <App content={[
-    <Single id='16' key='1' />
-  ]} />,
+  <App content={appContent}/>,
   document.getElementById('app')
 );
