@@ -317,6 +317,28 @@ ul.list--horizontal {
     .cell {
       width: 25%; } }
 
+.grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .grid__cell {
+    padding: 0.5rem;
+    border: 1px solid green;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%; }
+    .grid__cell > * {
+      width: 100%; }
+    @media only screen and (min-width: 768px) {
+      .grid__cell {
+        width: 50%; } }
+    @media only screen and (min-width: 992px) {
+      .grid__cell {
+        width: 25%; } }
+
 .site-header {
   width: 100%;
   display: -webkit-box;

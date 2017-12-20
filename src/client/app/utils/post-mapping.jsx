@@ -1,6 +1,7 @@
+import {customFields} from '../functions.jsx';
+
 var postMap = (post, index) => {
-  return (
-  {
+  return ({
     index: index,
     id: post.id,
     title: post.title.rendered,
@@ -13,11 +14,17 @@ var postMap = (post, index) => {
     modifiedGmt: post.modified_gmt,
     featuredImage: post.better_featured_image ? post.better_featured_image.source_url : post.image,
     tags: post.tags,
-    price: post.price,
-    image: post.image,
-    slug: post.slug
+    slug: post.slug,
+    customFields: mapCustomFields(customFields, post)
+  });
+}
+
+function mapCustomFields(fields, post) {
+  var obj = {}
+  for (var i = 0; i < fields.length; i++) {
+    obj[fields[i]] = post[fields[i]]
   }
-  )
+  return obj;
 }
 
 export default postMap;

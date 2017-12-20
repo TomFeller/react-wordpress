@@ -1,21 +1,16 @@
 import React from 'react';
 import {render} from 'react-dom';
-import classNames from 'classnames';
-import postProps from '../utils/post-props.jsx'
+import {getPostClasses} from '../functions.jsx';
 
 class PostSingle extends React.Component {
   render() {
-    const post = postProps(this.props.post);
-
+    const post = this.props.post;
+    !post.customFields ? post.customFields = [] : post.customFields;
     return (
       <article id={'post-id-' + post.id}
-               className={classNames(
-                 'post',
-                 'post-id-' + post.id,
-                 'post-cat-' + this.props.category,
-                 'post--single')}
+               className={getPostClasses(post)}
                key={post.id}>
-        <h2 className='post__title'>{post.title}</h2>
+        <h5 className='post__title'>{post.customFields.price}</h5>
         <img src={post.featuredImage}/>
       </article>
     )

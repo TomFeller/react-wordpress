@@ -24,4 +24,4 @@ const headerSideItems = [
   },
 ]
 
-export {headerItems, headerSideItems};
+export {headerItems};
