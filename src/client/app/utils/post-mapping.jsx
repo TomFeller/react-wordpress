@@ -19,6 +19,13 @@ var postMap = (post, index) => {
   });
 }
 
+var mapAppData = (data) => {
+  return ({
+    name: data.name,
+    description: data.description
+  })
+}
+
 function mapCustomFields(fields, post) {
   var obj = {}
   for (var i = 0; i < fields.length; i++) {
@@ -27,4 +34,4 @@ function mapCustomFields(fields, post) {
   return obj;
 }
 
-export default postMap;
+export {postMap, mapAppData};

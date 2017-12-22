@@ -1,0 +1,100 @@
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #333;
+        text-align: left;
+        padding: 8px;
+        vertical-align: top;
+    }
+
+    td:first-child {
+        white-space: nowrap;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<h1>List component</h1>
+<h3>Overview</h3>
+<p>The &lt;List /&gt; component is use to render a &lt;ul&gt; tag with &lt;li&gt; tags.</p>
+<h3>Props</h3>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Prop name</th>
+        <th>Description</th>
+        <th>Is required</th>
+        <th>Default value</th>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>Add as a class name for the &lt;ul&gt; tag and also as a BEM block class for the items (see example
+            below).
+        </td>
+        <td>Yes</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>items</td>
+        <td>The items (&lt;li&gt;) that are inside the &lt;ul&gt;</td>
+        <td>Yes</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>horizontal</td>
+        <td>if set to true, the &lt;ul&gt; will have 'list--horizontal' class (in addition to the 'list' class)</td>
+        <td>No</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>hasLinks</td>
+        <td>Tell the component if the items should have &lt;a&gt; tag inside. If set tu 'true', the <br>
+            <a href='../link/documentation.html'>&lt;Link /&gt;</a> component will render.
+        </td>
+        <td>No</td>
+        <td>false</td>
+    </tr>
+</table>
+
+<h3>Live example:</h3>
+<p>Copy that code:</p>
+<pre><code>
+  const items = [
+      {
+        label: 'home',
+        href: 'home.html',
+      },
+      {
+        label: 'about',
+        href: 'about.html'
+      },
+      {
+        label: 'contact',
+        href: 'contact.html'
+      }
+  ];
+  &lt;List name='nav'
+        items={items}
+        horizontal
+        hasLinks /&gt; <br>
+</code></pre>
+<p>To render:</p>
+<pre><code>
+    &lt;ul class="header-nav list list--horizontal"&gt;
+        &lt;li class="header-nav__item"&gt;
+            &lt;a href="home.html"&gt;home&lt;/a&gt;
+        &lt;/li>
+        &lt;li class="header-nav__item"&gt;
+            &lt;a href="about.html"&gt;about&lt;/a&gt;
+        &lt;/li>
+        &lt;li class="header-nav__item"&gt;
+            &lt;a href="contact.html"&gt;contact&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+</code></pre>

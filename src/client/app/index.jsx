@@ -1,22 +1,16 @@
 import React from 'react';
 import {render} from 'react-dom';
-import appContent from './data/app-structure.jsx';
-
-class App extends React.Component {
-  render() {
-    return (
-      <div className="wrapper">
-        {this.props.content.appContent.map((element, index) =>
-          <div className='container'>
-            {element}
-          </div>
-        )}
-      </div>
-    )
-  }
-}
+import App from './components/app.jsx'
+import appContent from './utils/app-structure.jsx';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 render(
-  <App content={appContent}/>,
+  <BrowserRouter>
+    <div>
+      <Link to="/about">
+      <App exact path='/' content={appContent} />
+        </Link>
+    </div>
+  </BrowserRouter>,
   document.getElementById('app')
 );
