@@ -1,16 +1,24 @@
 import React from 'react';
 import {render} from 'react-dom';
-import App from './components/app.jsx'
-import appContent from './utils/app-structure.jsx';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import Archive from './archive.jsx';
+import Single from './single.jsx';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="wrapper">
+        {this.props.content.map((element, index) =>
+          element
+        )}
+      </div>
+    )
+  }
+}
 
 render(
-  <BrowserRouter>
-    <div>
-      <Link to="/about">
-      <App exact path='/' content={appContent} />
-        </Link>
-    </div>
-  </BrowserRouter>,
+  <App content={[
+    <Single id='16' key='1' />,
+    <Archive category='4' key='1' />
+  ]} />,
   document.getElementById('app')
 );
