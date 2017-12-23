@@ -11,14 +11,13 @@
 import React from 'react';
 import {render} from 'react-dom';
 import classNames from 'classnames';
-import postMap from './utils/post-mapping.jsx';
-import routes from './data/dataRoutes.jsx';
-import PostSingle from './posts/post-single.jsx';
+import {postMap} from './utils/post-mapping.jsx';
+import routes from './utils/data-routes.jsx';
+import PostSingle from './template-parts/posts/post-single.jsx';
 
 class Single extends React.Component {
   constructor(props) {
     super(props);
-    this.buildPosts = this.buildSingleDOM.bind(this);
 
     const allPostsRoot = routes.posts;
     const {apiRoot, id} =  this.props;
@@ -38,26 +37,19 @@ class Single extends React.Component {
       }));
   }
 
-  buildSingleDOM() {
-    let dom = [];
+  render() {
     const post = this.state.post,
       postCategory = post.category;
-    dom.push(
-      <PostSingle category={postCategory}
-                  post={post}
-                  key={post.id}/>
-    );
-    return {dom, postCategory};
-  }
 
-  render() {
-    let renderDOM = this.buildSingleDOM();
     return (
-      <div key={renderDOM.postCategory}
+      <div key={postCategory}
            className={classNames(
              'single',
-             'single-cat-' + renderDOM.postCategory)}>
-        {renderDOM.dom}
+             'single-cat-' + postCategory)}>
+        <h1 className='single__title'>Post: {postCategory}</h1>
+        <PostSingle category={postCategory}
+                    post={post}
+                    key={post.id}/>
       </div>
     )
   }

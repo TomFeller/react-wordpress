@@ -11,10 +11,10 @@
 import React from 'react';
 import {render} from 'react-dom';
 import classNames from 'classnames';
-import postMap from './utils/post-mapping.jsx';
-import routes from './data/dataRoutes.jsx';
-import PostThumbnail from './posts/post-thumbnail.jsx';
-import Grid from './Grid/grid.jsx';
+import {postMap} from './utils/post-mapping.jsx';
+import routes from './utils/data-routes.jsx';
+import PostThumbnail from './template-parts/posts/post-thumbnail.jsx';
+import Grid from './layout/grid.jsx';
 
 class Archive extends React.Component {
   constructor(props) {
@@ -71,7 +71,8 @@ class Archive extends React.Component {
              'archive',
              'archive-cat-' + renderDOM.postCategory)}>
         <h1 className='archive__title'>Archive: {renderDOM.postCategory}</h1>
-        <Grid layout='bli' elements={renderDOM.dom}/>
+        <Grid layout='grid'
+              elements={renderDOM.dom}/>
       </div>
     )
   }

@@ -1,0 +1,66 @@
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #333;
+        text-align: left;
+        padding: 8px;
+        vertical-align: top;
+    }
+
+    td:first-child {
+        white-space: nowrap;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+</style>
+<h1>Link component</h1>
+<h3>Overview</h3>
+<p>The &lt;Link /&gt; component is use to render a basic 'a' tag.
+</p>
+<h3>Props</h3>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Prop name</th>
+        <th>Description</th>
+        <th>Is required</th>
+        <th>Default value</th>
+    </tr>
+    <tr>
+        <td>label</td>
+        <td>The text/content of the link</td>
+        <td>Yes</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>href</td>
+        <td>The url of the link</td>
+        <td>Yes</td>
+        <td>javascript:void(0)</td>
+    </tr>
+    <tr>
+        <td>target</td>
+        <td>The target type of the link.</td>
+        <td>No</td>
+        <td>-</td>
+    </tr>
+</table>
+
+<h3>Live example:</h3>
+<p>Copy that code:</p>
+<pre><code>
+    &lt;Link label='Go'
+          href='www.google.com'
+          target='_blank' /&gt <br>
+</code></pre>
+<p>To render:</p>
+<pre><code>
+    &lt;a href="www.google.com" target="_blank"&gt; Go &lt;/a&gt;
+</code></pre>
